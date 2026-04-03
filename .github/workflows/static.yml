@@ -29,9 +29,6 @@ jobs:
       - name: Inject Environment Variables
         run: |
           sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.ts
-          
-      - name: List dist contents
-        run: ls -R dist/
       
       - name: Angular Deploy gh-pages Actions
         # You may pin to the exact commit or the version.
