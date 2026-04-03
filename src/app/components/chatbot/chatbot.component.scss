@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    margin-top: 10px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.text {
+    white-space: pre-wrap
+}
+
+.user-chat, .ai-chat {
+    padding: 10px;
+    border-radius: 2px;
+    border: black 2px solid;
+    filter: drop-shadow(-10px 11px 5px black);
+    width: 100%;
+}
+
+.user-chat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.ai-chat {
+
+}

@@ -1,0 +1,7 @@
+<textarea [(ngModel)]="inputPrompt"></textarea>
+<br>
+@for (prompt of promptSet; track $index) {
+    <button (click)="onFunctionalityClick(prompt.initialPrompt)">{{prompt.title}}</button>
+}
+<br>
+<div [innerHTML]="outputPrompt"></div>

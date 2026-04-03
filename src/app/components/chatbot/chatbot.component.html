@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="content">
+      @for (c of chats; track $index) {
+        <div [ngClass]=" c.role == 'user' ? 'user-chat': 'ai-chat'">
+          @if(c.role == 'model'){
+            <div>AI</div>
+          }
+          @else {
+            <div>User</div>
+          }
+          <div class="text">{{c.message}}</div>
+        </div>
+        
+        <br>
+      }
+      @empty {
+        <div><i>No message found</i></div>
+      }
+      
+      <div>
+        <input type="text" [(ngModel)]="message" >
+        <button type="button" (click)="onButtonClick()">Send</button>
+      </div>
+      
+    </div>
+  </div>
+  
+  
