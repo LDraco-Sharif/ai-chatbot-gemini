@@ -10,11 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: production
     steps:
-      - name: Inject Environment Variables
-        run: |
-          sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.prod.ts
-          sed -i "s|API_KEY_PLACEHOLDER|${{ secrets.MY_API_KEY }}|g" src/environments/environment.prod.ts
-
       - name: Checkout Repository
         uses: actions/checkout@v3
 
@@ -25,6 +20,11 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        
+      - name: Inject Environment Variables
+        run: |
+          sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.prod.ts
+          sed -i "s|API_KEY_PLACEHOLDER|${{ secrets.MY_API_KEY }}|g" src/environments/environment.prod.ts
 
       - name: Build Angular Project
         run: npm run build --configuration=production
