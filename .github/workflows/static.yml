@@ -29,10 +29,7 @@ jobs:
       - name: Inject Environment Variables
         run: |
           sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.ts
-
-      - name: Build Angular Project
-        run: npm run build --configuration=production
-     
+          
       - name: List dist contents
         run: ls -R dist/
       
@@ -48,11 +45,11 @@ jobs:
           # Build configuration for the angular app
           build_configuration: production # optional, default is production
           # base href for the app
-          base_href: /ai-chatbot-gemini/ # optional, default is /
+          base_href: /ai-chatbot/ # optional, default is /
           # branch on which the angular build will be deployed
           deploy_branch: gh-pages # optional, default is gh-pages
           # The folder in which `ng build` provides its output. This is the folder which will be deployed to the `deploy_branch`.
-          angular_dist_build_folder: dist/ai-chatbot-gemini/browser # optional, default is dist
+          angular_dist_build_folder: dist/ai-chatbot/browser # optional, default is dist
           # If the action should run 'ng lint'
           run_lint: # optional
           # Will not fail the step if anything fails
