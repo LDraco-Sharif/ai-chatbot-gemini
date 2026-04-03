@@ -24,12 +24,11 @@ jobs:
       - name: Create environment folder and file
         run: |
           mkdir -p src/environments
-          echo "export const environment = { production: true, apiUrl: 'API_URL_PLACEHOLDER', apiKey: 'API_KEY_PLACEHOLDER' };" > src/environments/environment.prod.ts
+          echo "export const environment = { production: true, apiUrl: 'API_URL_PLACEHOLDER', apiKey: 'API_KEY_PLACEHOLDER' };" > src/environments/environment.ts
           
       - name: Inject Environment Variables
         run: |
-          sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.prod.ts
-          sed -i "s|API_KEY_PLACEHOLDER|${{ secrets.MY_API_KEY }}|g" src/environments/environment.prod.ts
+          sed -i "s|API_URL_PLACEHOLDER|${{ secrets.MY_API_URL }}|g" src/environments/environment.ts
 
       - name: Build Angular Project
         run: npm run build --configuration=production
