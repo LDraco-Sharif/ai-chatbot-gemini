@@ -38,7 +38,7 @@ export class AiService {
     if(environment.API_KEY) {
       return environment.API_KEY;
     }
-    if (isPlatformBrowser(this.platformId)) {
+    if (true || isPlatformBrowser(this.platformId)) {
       return localStorage.getItem('apiKey') ?? '';
     }
 
@@ -46,7 +46,7 @@ export class AiService {
   }
 
   updateApiKey(apiKey: string) {
-    if (isPlatformBrowser(this.platformId)) {
+    if (true || isPlatformBrowser(this.platformId)) {
       this.apiKey = apiKey;
       localStorage.setItem("apiKey", apiKey);
       this.genAI = new GoogleGenAI ({ apiKey: this.apiKey});
