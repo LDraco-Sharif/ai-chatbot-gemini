@@ -6,6 +6,7 @@ export const checkTokenGuard: CanActivateFn = (route, state) => {
   let aiService = inject(AiService);
   const router = inject(Router);
   if(aiService.getApiKey()) {
+    console.log(aiService.getApiKey());
     return true;
   } else {
     return router.createUrlTree(['/login'], { 
